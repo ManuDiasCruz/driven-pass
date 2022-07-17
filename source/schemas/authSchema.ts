@@ -1,8 +1,8 @@
 import joi from "joi";
 
-const authSchema = joi.object({
-  userId: joi.number().integer().required(),
-  sessionId: joi.number().integer().required(),
-});
+import { userData } from "./../utils/types";
 
-export default authSchema;
+export const authSchema = joi.object<userData>({
+  email: joi.string().email().required(),
+  password: joi.string().min(10).required()
+});

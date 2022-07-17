@@ -6,9 +6,9 @@ import { userData } from "./../utils/types.js";
 import * as userRepository from "./../repositories/userRepository.js";
 
 export async function create(user: userData){
-    const userExists = await userRepository.search("email", user.email);
+    const thereIsUser = await userRepository.search("email", user.email);
     
-    if(userExists) 
+    if(thereIsUser) 
         throw { type: "conflict", message: "User already exists" };
 
     const hashedPass = encripUtils.encryptPassword(user.password);
@@ -18,13 +18,15 @@ export async function create(user: userData){
 }
 
 export async function signIn(user: userData){
-    const userExists = await userRepository.search("email", user.email);
-    const isValid = encripUtils.decryptPassword(user.password, userExists.password);
+    const thereIsUser = await userRepository.search("email", user.email);
+    if (!thereIsUser)
+        throw { type: "not_found", message: "User not found"}
 
-    if(!userExists || !isValid) 
+    const isValid = encripUtils.decryptPassword(user.password, thereIsUser.password);
+    if(!isValid) 
         throw { type: "unauthorized", message: "Invalid credentials. Try again." };
-
-    const data = { id: userExists.id, email: userExists.email };
+    
+    const data = { id: thereIsUser.id, email: thereIsUser.email };
     const token = jwt.sign( data, process.env.JWT_SECRET);
 
     return { token };
