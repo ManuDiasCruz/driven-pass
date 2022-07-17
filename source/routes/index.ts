@@ -1,7 +1,8 @@
 import { Router } from "express";
-//import questionRouter from "./questionRouter.js";
+import authRouter from "./authRouter.js";
+
 
 const router = Router();
-//router.use(questionRouter);
+router.use(authRouter);
 
 export default router;
