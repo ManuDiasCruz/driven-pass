@@ -14,7 +14,7 @@ export async function create(credential: credentialData, userId: number) {
     return repository.create({ ...credential, userId, password: hashedPassword });
 }
 
-export async function getcredentialUser(userId: number) {
+export async function getCredentialUser(userId: number) {
     const result = await repository.getCredentialsUser(userId);
     return encripUtils.decryptObjectsPass(result);
 }

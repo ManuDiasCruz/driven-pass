@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 
 import { checkUser } from "./../utils/userCheck.js";
+import * as service from "./../services/credentialService.js";
 
 export async function create(req: Request, res: Response) {
   const userId = Number(res.locals.user.id);
@@ -14,7 +15,7 @@ export async function getCredentialsUser(req: Request, res: Response) {
   const userIdToken = Number(res.locals.user.id);
 
   checkUser(userId, userIdToken);
-  const credentials = await service.getCredentialsUser(userId);
+  const credentials = await service.getCredentialUser(userId);
   res.send(credentials);
 }
 
