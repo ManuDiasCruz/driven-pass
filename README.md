@@ -30,7 +30,7 @@ API to store and manage confidential information regarding Website credentials, 
 
 ## :rocket: Rotas
 
-### :lock: Authentication
+### Authentication
 
 ```yml
 POST /sign-up
@@ -52,7 +52,8 @@ POST /login
       }
 ```
 
-### :credit_card: Money Cards
+### Money Cards
+Card type should be: CREDIT, DEBIT or BOTH.
 
 ```yml 
 POST /cards (authenticated)
@@ -91,7 +92,7 @@ DELETE /card/:id (authenticated)
     - body: {}
 ```
 
-### :envelop: Credentials
+### Credentials
 
 ```yml 
 POST /credentials (authenticated)
@@ -126,7 +127,8 @@ DELETE /credential/:id (authenticated)
     - body: {}
 ```
 
-### :card: Documents
+### Documents
+Document type should be: RG, CPF or CNH.
 
 ```yml 
 POST /documents (authenticated)
@@ -159,7 +161,7 @@ DELETE /document/:id (authenticated)
     - body: {}
 ```
 
-### :page_facing_up: Notes
+### Notes
 
 ```yml 
 POST /notes (authenticated)
@@ -192,7 +194,7 @@ DELETE /note/:id (authenticated)
     - body: {}
 ```
 
-### :wifi: Wifi
+### Wifi
 
 ```yml 
 POST /wifis (authenticated)
