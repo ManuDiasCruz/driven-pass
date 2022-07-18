@@ -1,6 +1,6 @@
 import joi from "joi";
 
-export const documentsSchema = joi.object({
+export const documentSchema = joi.object({
   number: joi.string().required(),
   type: joi.string().valid("RG", "CNH").required()
 });
