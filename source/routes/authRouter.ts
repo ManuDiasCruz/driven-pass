@@ -3,7 +3,7 @@ import { Router } from "express";
 import { validateSchema } from "./../middlewares/schemaValidator.js";
 import { authSchema } from "./../schemas/authSchema.js";
 
-import * as authController from "./../controllers/authController.js" q
+import * as authController from "./../controllers/authController.js";
 
 const authRouter = Router();
 
