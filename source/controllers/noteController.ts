@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { checkUser } from '../utils/userCheck.js';
 
 import * as service from "./../services/noteService.js";
 
@@ -11,6 +12,9 @@ export async function create(req: Request, res: Response) {
 
 export async function getNotesUser(req: Request, res: Response) {
     const userId = Number(req.params.userId);
+    const userIdToken = Number(res.locals.user.id);
+
+    checkUser(userId, userIdToken);
     
     const notes = await service.getNoteUser(userId);
     res.send(notes);

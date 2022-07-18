@@ -1,0 +1,2 @@
+-- AlterEnum
+ALTER TYPE "DOC_TYPE" ADD VALUE 'CPF';

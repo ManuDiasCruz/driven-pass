@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const cryptr = new Cryptr(process.env.CRYPTR_KEY);
+const cryptr = new Cryptr(process.env.CRYPTR_KEY+"");
 
 export function encryptSecurityPass(password: string) {
   return cryptr.encrypt(password);
