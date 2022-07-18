@@ -7,13 +7,12 @@
 
 <p align = "center">
    <img src="https://img.shields.io/badge/author-Manuella Dias Cruz-4dae71?style=flat-square" />
-   <img src="https://img.shields.io/github/languages/count/Manuella Dias Cruz/DrivenPass?color=4dae71&style=flat-square" />
 </p>
 
 
 ##  :clipboard: Description
 
-API to store and manage confidential information regarding Website credentials, Money Cards, Documents, Wifis and Text Notes.
+API to store and manage confidential information regarding Website credentials, Money Cards, Identity Documents, Wifis and Text Notes.
 
 ***
 
