@@ -30,79 +30,221 @@ API to store and manage confidential information regarding Website credentials, 
 
 ## :rocket: Rotas
 
+### :lock: Authentication
+
 ```yml
-POST /cadastro
-    - Rota para cadastrar um novo usuário
+POST /sign-up
+    - Route to user register
     - headers: {}
     - body:{
-        "nome": "Lorem ipsum",
         "email": "lorem@gmail.com",
-        "senha": "loremipsum"
-}
+        "password": "loremipsum"
+      }
 ```
     
 ```yml 
 POST /login
-    - Rota para fazer login
+    - Route to sign in
     - headers: {}
     - body: {
-    "email": "lorem@gmail.com",
-    "senha": "loremipsum"
-    }
+       "email": "lorem@gmail.com",
+       "password": "loremipsum"
+      }
 ```
-    
+
+### :credit_card: Money Cards
+
 ```yml 
-GET /usuarios (autenticada)
-    - Rota para listar todos os usuários
+POST /cards (authenticated)
+    - Insert a card
     - headers: { "Authorization": "Bearer $token" }
-    - body: {}
+    - body: {
+        "title": "Card name",
+        "number": "1234 3456 5678 7890",
+        "cardholderName": "Lorem Ipsum",
+        "securityCode": "123",
+        "expirationDate": "01/23",
+        "password": "loremipsum",
+        "isVirtual": false,
+        "type": "CREDIT"
+      }
 ```
 
 ```yml
-GET /usuarios/:id (autenticada)
-    - Rota para listar um usuário pelo id
+GET /cards/:userId (authenticated)
+    - Route to list all user's cards
     - headers: { "Authorization": "Bearer $token" }
     - body: {}
 ``` 
 
 ```yml
-PUT /usuarios/:id (autenticada)
-    - Rota para atualizar um usuário pelo id
-    - headers: { "Authorization": "Bearer $token" }
-    - body: {
-        "nome": "Lorem ipsum2",
-        "email": "lorem2@gmail.com",
-        "senha": "loremipsum2"
-    }
-```
- 
-```yml
-DELETE /usuarios/:id (autenticada)
-    - Rota para deletar um usuário pelo id
+GET /card/:id (authenticated)
+    - Route to get a especific user card by id
     - headers: { "Authorization": "Bearer $token" }
     - body: {}
 ```
+ 
+```yml
+DELETE /card/:id (authenticated)
+    - Route to delete a especific user card by id
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {}
+```
+
+### :envelop: Credentials
+
+```yml 
+POST /credentials (authenticated)
+    - Insert a credential
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {
+        "title": "Lorem",
+        "url": "http://www.lorem.com",
+        "username": "lorem2@gmail.com",
+        "password": "loremipsum"
+      }
+```
+
+```yml
+GET /credentials/:userId (authenticated)
+    - Route to list all user's credentials
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {}
+``` 
+
+```yml
+GET /credential/:id (authenticated)
+    - Route to get a especific user credential by id
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {}
+```
+ 
+```yml
+DELETE /credential/:id (authenticated)
+    - Route to delete a especific user card by id
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {}
+```
+
+### :card: Documents
+
+```yml 
+POST /documents (authenticated)
+    - Insert a document
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {
+        "number": "123456",
+        "type": "CPF"
+      }
+```
+
+```yml
+GET /documents/:userId (authenticated)
+    - Route to list all user's documents
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {}
+``` 
+
+```yml
+GET /document/:id (authenticated)
+    - Route to get a especific user document by id
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {}
+```
+ 
+```yml
+DELETE /document/:id (authenticated)
+    - Route to delete a especific user document by id
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {}
+```
+
+### :page_facing_up: Notes
+
+```yml 
+POST /notes (authenticated)
+    - Insert a note
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {
+        "title": "TODO List",
+        "content": "- Groceries, - Drugstore, - Gym, - Work, - Kids school meeting"
+      }
+```
+
+```yml
+GET /notes/:userId (authenticated)
+    - Route to list all user's notes
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {}
+``` 
+
+```yml
+GET /note/:id (authenticated)
+    - Route to get a especific user note by id
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {}
+```
+ 
+```yml
+DELETE /note/:id (authenticated)
+    - Route to delete a especific user note by id
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {}
+```
+
+### :wifi: Wifi
+
+```yml 
+POST /wifis (authenticated)
+    - Insert a wifi
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {
+        "title": "Home",
+        "network": "loremipsum"
+        "password": "loremipsum"
+      }
+```
+
+```yml
+GET /wifis/:userId (authenticated)
+    - Route to list all user's wifis
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {}
+``` 
+
+```yml
+GET /wifi/:id (authenticated)
+    - Route to get a especific user wifi by id
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {}
+```
+ 
+```yml
+DELETE /wifi/:id (authenticated)
+    - Route to delete a especific user wifi by id
+    - headers: { "Authorization": "Bearer $token" }
+    - body: {}
+```
+
 ***
 
-## 🏁 Rodando a aplicação
+## 🏁 Running
 
-Este projeto foi inicializado com o [Create React App](https://github.com/facebook/create-react-app), então certifique-se que voce tem a ultima versão estável do [Node.js](https://nodejs.org/en/download/) e [npm](https://www.npmjs.com/) rodando localmente.
+This projects uses [Create React App](https://github.com/facebook/create-react-app), look for the newer verson of [Node.js](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/) when you run it locally.
 
-Primeiro, faça o clone desse repositório na sua maquina:
+Clone this repo on your machine:
 
 ```
-git clone https://github.com/luanalessa/projeto-backend.git
+git clone https://github.com/ManuDiasCruz/driven-pass.git
 ```
 
-Depois, dentro da pasta, rode o seguinte comando para instalar as dependencias.
+Then run the bellow command to install packages and dependencies:
 
 ```
 npm install
 ```
 
-Finalizado o processo, é só inicializar o servidor
+To initialize the server jst run:
 ```
-npm start
+npm run dev
 ```
-
-:stop_sign: Não esqueça de repetir os passos acima com o [repositório](https://github.com/luanalessa/projeto-frontend.git) que contem a interface da aplicação, para testar o projeto por completo.
